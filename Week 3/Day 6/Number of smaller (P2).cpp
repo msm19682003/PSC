@@ -1,15 +1,12 @@
 #include<bits/stdc++.h>
 #define ll long long
-
 using namespace std;
 
 void solve()
 {
-    int n,m,i,j;
+    int n,m,cnt=0;
     cin>>n>>m;
-    vector<int> a(n),b(m);
-    vector<int> v;
-
+    int a[n],b[m],i,j;
     for(i=0;i<n;i++)
     {
         cin>>a[i];
@@ -19,20 +16,23 @@ void solve()
         cin>>b[i];
     }
 
-    j=0;
-    for(i=0;i<m;i++)
+vector<int> ans;
+    j=0,i=0;
+    while(i<m)
     {
-        while(a[j]<b[i])
+        if(j<n && a[j]<b[i])
         {
-            if(j<n)
-            {
-                j++;
-            }
+            cnt++;
+            j++;
         }
-        v.push_back(j);
+        else
+        {
+            i++;
+            ans.push_back(cnt);
+        }
     }
 
-    for(auto ele:v)
+    for(auto ele: ans)
     {
         cout<<ele<<" ";
     }
@@ -40,5 +40,8 @@ void solve()
 
 int main()
 {
+   
     solve();
+   
+   return 0;
 }
