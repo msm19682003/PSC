@@ -11,89 +11,47 @@ void solve()
 
     cin>>s;
     l=s.size();
-    ss=s;
-    sort(ss.begin(),ss.end());
 
-    ll fast=(s[0]-'a')+1;
-    ll last=(s[l-1]-'a')+1;
 
-    vector<pair<int,int>> v;
+    char fast=s[0];
+    char last=s[l-1];
 
-    for(i=0; i<l; i++)
+    char mn=min(s[0],s[l-1]);
+    char mx=max(s[0],s[l-1]);
+
+    vector<pair<char,int>> v;
+
+    for(i=1; i<l-1; i++)
     {
-        v.push_back({(s[i]-'a')+1,i+1});
+        if(s[i]>=mn && s[i]<=mx)
+        {
+            v.push_back({s[i],i+1});
+        }
+
     }
 
-    sort(v.begin(),v.end());
-
-    /*for(auto ele:v)
+    if(fast<=last)
     {
-        cout<<ele.first<<" "<<ele.second<<endl;
-    }*/
-
-    vector<int> res;
-    ll sum=0,step=0;
-
-    if(last<=fast)
-    {
-        i=0;
-        while(v[i].second!=1)
-        {
-            if(v[i].first>=last)
-            {
-                sum+=v[i+1].first - v[i].first;
-                step++;
-                res.push_back(v[i].second);
-            }
-
-            i++;
-        }
-        step++;
-        res.push_back(v[i].second);
-
-        reverse(res.begin(),res.end());
+        sort(v.begin(),v.end());
     }
     else
     {
-        i=l-1;
-        while(v[i].second!=1)
-        {
-            if(v[i].first<=last)
-            {
-                sum+=v[i].first - v[i-1].first;
-                step++;
-                res.push_back(v[i].second);
-            }
-
-            i--;
-        }
-        step++;
-        res.push_back(v[i].second);
-
-        reverse(res.begin(),res.end());
+        sort(v.rbegin(),v.rend());
     }
 
 
-    if(ss[0]==ss[l-1])
+    ll sum= abs((s[0]-'a')-(s[l-1]-'a')),step=v.size();
+
+
+    cout<<sum<<" "<<step+2<<endl;
+    cout<<1<<sp;
+    for(auto ele:v)
     {
-        cout<<0<<" "<<l<<endl;
-        for(j=1; j<=l; j++)
-        {
-            cout<<j<<" ";
-        }
-        cout<<endl;
+        cout<<ele.second<<sp;
     }
-    else
-    {
-        cout<<sum<<" "<<step<<endl;
-        for(auto ele:res)
-        {
-            cout<<ele<<" ";
-        }
-        cout<<endl;
-    }
-
+    cout<<l<<endl;
 }
+
 int main()
 {
     int t;
