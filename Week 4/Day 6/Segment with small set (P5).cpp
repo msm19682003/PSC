@@ -1,5 +1,3 @@
-
-
 #include <bits/stdc++.h>
 #define ll long long
 #define fst ios::sync_with_stdio(false); cin.tie(nullptr);
@@ -18,29 +16,25 @@ void solve()
     }
 
     l=0,r=0;
-    ll ans=0,mn,mx;
-    multiset<ll> ml;
+    ll ans=0,mn,mx,flag=0;
+
+    map<ll,ll> mp;
 
     while(r<n)
     {
-        s+=a[r];
-        if(s>=k)
+        mp[a[r]]++;
+        while(mp.size()>k)
         {
-            ans+=(n-r);
-            while(s>=k)
+            mp[a[l]]--;
+
+            if(mp[a[l]]==0)
             {
-                s-=a[l];
-                if(s>=k)
-                {
-                    ans+=(n-r);
-                }
-                l++;
+                mp.erase(a[l]);
             }
+            l++;
         }
-
-            r++;
-
-
+        ans=r-l+1;
+        r++;
     }
 cout<<ans<<endl;
 }
