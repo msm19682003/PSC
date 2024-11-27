@@ -5,31 +5,29 @@ using namespace std;
 
 void solve()
 {
-    int n,i;
+    int n,i,j;
     cin>>n;
-    if(n%2==1)
+    int a[n];
+    string s="";
+    int trk[26]={0};
+    for(i=0;i<n;i++)
     {
-        cout<<"NO\n";
+        cin>>a[i];
     }
-    else
-    {
-        int l=0;
 
-        cout<<"YES\n";
-        for(i=0;i<26;i++)
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<26;j++)
         {
-            if(l>=n)
+            if(a[i]==trk[j])
             {
+                s+=char(j+'a');
+                trk[j]++;
                 break;
             }
-            cout<<char('A'+i);
-            cout<<char('A'+i);
-            l+=2;
-
         }
-        cout<<endl;
     }
-
+    cout<<s<<endl;
 }
 
 int main()
