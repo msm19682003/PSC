@@ -8,25 +8,18 @@ void solve()
 {
     int n;
     cin>>n;
-    int res=(n+1)/2,p=n,i=1,j=6;
+    int res=(n+1)/2,p=n,i=1,j=3*n;
     vector<int>v;
 
-    while(p)
+    while(i<j)
     {
-        if(p==1)
-        {
-            v.push_back(i);
-            v.push_back(i+1);
-            p--;
-        }
-        else
-        {
+        
             v.push_back(i);
             v.push_back(j);
-            i+=6;
-            j+=6;
-            p-=2;
-        }
+            p--;
+        
+        i+=3;
+        j-=3;
 
     }
 
