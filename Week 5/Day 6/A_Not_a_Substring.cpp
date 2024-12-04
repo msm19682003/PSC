@@ -22,6 +22,7 @@ void solve()
             break;
         }
     }
+    
     cout << "YES\n";
     if (f)
     {
