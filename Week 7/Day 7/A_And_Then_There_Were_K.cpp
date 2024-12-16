@@ -9,15 +9,11 @@ using namespace std;
 
 
 void solve() {
-    ll n;
-    cin>>n;
-    ll ans=1;
-    while(ans<=n){
-        ans*=2;
-    }
-    ans/=2;
-    ans--;
-    cout<<ans<<endl;
+    int n;
+    cin >> n;
+    int bit = __lg(n);
+    int mxno = (1 << bit) - 1;
+    cout << (mxno) << endl;
 }
 
 int main() {
