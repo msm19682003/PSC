@@ -1,1 +1,9 @@
-10
+1
+RRRRRRBB
+.B.B..BB
+RRRRRRBB
+.B.B..BB
+.B.B..BB
+RRRRRRBB
+.B.B..BB
+.B.B..BB
