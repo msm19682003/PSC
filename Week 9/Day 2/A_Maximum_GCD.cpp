@@ -11,23 +11,10 @@ using namespace std;
 void solve() {
     int n;
     cin>>n;
-    if(n<3){
-        cout<<n<<endl;
-    }
-    else if(n>3){
-        int sum=4,ans=2;
-        while(sum<n){
-            ans++;
-            sum++;
-            sum*=2;
-        }
-        cout<<ans<<endl;
-    }
-    else{
-        cout<<2<<endl;
-    }
+    cout<<n/2<<endl;
 }
-int main(){
+
+int main() {
     fast;
     int t;
     cin >> t; while(t--)
