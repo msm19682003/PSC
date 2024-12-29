@@ -1,4 +1,3 @@
-if(neg  == n){
-    //     cout << 0 << endl;
-    //     return;
-    // }
+ // for(int i : freq){
+    //     cout << i << sp;
+    // }nl;
