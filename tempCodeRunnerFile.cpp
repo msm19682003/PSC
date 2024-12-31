@@ -1,3 +1,4 @@
- // for(int i : freq){
-    //     cout << i << sp;
-    // }nl;
+for(int i = 0; i<n; i++){
+        cout << arr[i] << sp;
+    }
+    nl;
