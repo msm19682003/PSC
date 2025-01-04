@@ -4,36 +4,34 @@ using namespace std;
 
 void solve()
 {
-    ll n, i;
-    cin >> n;
-    vector<ll> v(n);
-    for (i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
-    multiset<ll> s;
-    for(i=0;i<n;i++)
-    {
-        if(s.size()==0)
-        {
-            s.insert(v[i]);
-        }
-        else
-        {
-            auto base=s.upper_bound(v[i]);
-            if(base==s.end())
-            {
-                s.insert(v[i]);
-            }
-            else
-            {
-                s.insert(v[i]);
-                s.erase(base);
-            }
-        }
-    }
+    ll n,l, i,v;
+    cin >>l>> n;
 
-    cout << s.size() << endl;
+    set<int> pos;
+    multiset<int> len;
+
+    pos.insert(0);
+    pos.insert(l);
+    len.insert(l);
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v;
+        auto nxt = pos.upper_bound(v);
+        auto pre = nxt;
+        pre--;
+
+        len.erase(len.find(*nxt - *pre));
+
+        len.insert(*nxt - v);
+        len.insert(v - *pre);
+
+        pos.insert(v);
+
+        cout << *len.rbegin() << " ";
+    }
+    
+   cout<<endl;
 }
 
 int main()
