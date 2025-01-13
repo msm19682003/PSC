@@ -9,7 +9,25 @@ using namespace std;
 
 
 void solve() {
-    /* code */
+    ll n, k;
+    cin >> n >> k;
+    if(n>k){
+        cout << k; nl;
+        return;
+    }
+    else if(n == k){
+        cout << n+1; nl;
+        return;
+    }
+    else{
+        ll m = n-1;
+        ll slot = k/m;
+        if(k%m == 0){
+            slot--;
+        }
+        ll ans = (n*slot) + k - (m * slot);
+        cout << ans; nl;
+    }
 }
 
 int main() {
