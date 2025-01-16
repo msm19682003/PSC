@@ -51,7 +51,7 @@ void solve()
 
     while (low != high)
     {
-        ll mid = (low + high+1) / 2;
+        ll mid = (low + high + 1) / 2;
 
         if (isPossible(mid))
         {
@@ -71,6 +71,6 @@ int main()
     // int t;
     // cin >> t;
     // while (t--)
-        solve();
+    solve();
     return 0;
 }
