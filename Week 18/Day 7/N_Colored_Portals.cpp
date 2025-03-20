@@ -9,6 +9,7 @@ void solve() {
     int n, q;
     cin >> n >> q;
     vector<int> a(n + 1);
+
     unordered_map<char, int> f = {{'B', 1}, {'R', 2}, {'G', 4}, {'Y', 8}};
     vector<set<int>> t(16);
     
@@ -19,6 +20,7 @@ void solve() {
         t[a[i]].insert(i);
     }
     
+
     while (q--) {
         int x, y;
         cin >> x >> y;
@@ -29,7 +31,8 @@ void solve() {
             if ((a[x] & i) && (a[y] & i)) {
                 auto it = t[i].lower_bound(y);
                 if (it != t[i].end()) ans = min(ans, (*it) * 2 - x - y);
-                if (it != t[i].begin()) {
+                if (it != t[i].begin()) 
+                {
                     --it;
                     ans = min(ans, y - (*it) + abs((*it) - x));
                 }
